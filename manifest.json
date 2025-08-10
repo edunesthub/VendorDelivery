@@ -2,10 +2,13 @@
   "name": "Order Control",
   "short_name": "Order Control",
   "description": "Chawp Order Control - Sleek Food Delivery Vendor Portal",
-  "start_url": "/index.html?refresh=true",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
   "background_color": "#1c1c1e",
   "theme_color": "#1c1c1e",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/img/icon-192x192.png",
@@ -19,7 +22,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "scope": "/",
-  "orientation": "portrait"
+  ]
 }

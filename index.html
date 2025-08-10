@@ -250,22 +250,52 @@
             <button id="settings-btn"><i class="fas fa-cog"></i><span>Settings</span></button>
         </div>
     </div>
+    <button id="install-btn">Install App</button>
+
+    
 
     <script type="module" src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ✅ Register Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => console.log('✅ Service Worker registered', reg))
+      .catch(err => console.error('❌ SW registration failed:', err));
+  }
 
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                // Register custom service worker
-                navigator.serviceWorker.register("/sw.js").then(registration => {
-                    console.log("Custom ServiceWorker registration successful");
-                    registration.update();
-                }).catch(err => {
-                    console.log("Custom ServiceWorker registration failed: ", err);
-                });
-            });
-        }
-    </script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('install-btn');
+
+  // Hide the button initially
+  if (installBtn) {
+    installBtn.style.display = 'none';
+  }
+
+  // ✅ Listen for the beforeinstallprompt event
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    console.log('📲 PWA install prompt is ready');
+    if (installBtn) {
+      installBtn.style.display = 'inline-block'; // Show button
+    }
+  });
+
+  // ✅ Handle button click
+  if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`Install outcome: ${outcome}`);
+      deferredPrompt = null;
+      installBtn.style.display = 'none'; // Hide after prompt
+    });
+  }
+});
+</script>
+
 
 
 </body>
