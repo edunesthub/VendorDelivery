@@ -2,7 +2,7 @@
   "name": "Order Control",
   "short_name": "Order Control",
   "description": "Chawp Order Control",
-  "start_url": "/",
+  "start_url": "/index.html?refresh=true",
   "display": "standalone",
   "background_color": "#1c1c1e",
   "theme_color": "#1c1c1e",
@@ -20,5 +20,6 @@
       "purpose": "any maskable"
     }
   ],
-  "scope": "/"
+  "scope": "/",
+  "orientation": "portrait"
 }
