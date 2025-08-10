@@ -1,7 +1,7 @@
 {
   "name": "Order Control",
   "short_name": "Order Control",
-  "description": "Chawp Order Control",
+  "description": "Chawp Order Control - Sleek Food Delivery Vendor Portal",
   "start_url": "/index.html?refresh=true",
   "display": "standalone",
   "background_color": "#1c1c1e",
