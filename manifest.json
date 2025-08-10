@@ -1,7 +1,7 @@
 {
-  "name": "Chawp Vendor",
-  "short_name": "Chawp Vendor",
-  "description": "Manage your culinary empire with elegance.",
+  "name": "Order Control",
+  "short_name": "Order Control",
+  "description": "Chawp Order Control",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1c1c1e",
